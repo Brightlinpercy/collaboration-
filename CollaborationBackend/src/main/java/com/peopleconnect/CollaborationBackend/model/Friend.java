@@ -15,7 +15,7 @@ public class Friend {
 	private int friendid;
 	
 	@ManyToOne
-	private User useremailid;
+	private UserDetail user;
 	
 	@Column
 	private String friendname;
@@ -46,4 +46,13 @@ public class Friend {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public UserDetail getUser() {
+		return user;
+	}
+
+	public void setUser(UserDetail user) {
+		this.user = user;
+	}
+	
 }

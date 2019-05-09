@@ -6,10 +6,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class BlogComment {
+	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column
 	private int commentid;
@@ -20,8 +22,24 @@ public class BlogComment {
     @Column
     Date createDate;
     @ManyToOne
-    private User useremailid;
+    private UserDetail user;
     
+	public String getCommentdata() {
+		return commentdata;
+	}
+
+	public void setCommentdata(String commentdata) {
+		this.commentdata = commentdata;
+	}
+
+	public UserDetail getUser() {
+		return user;
+	}
+
+	public void setUser(UserDetail user) {
+		this.user = user;
+	}
+
 	public int getCommentid() {
 		return commentid;
 	}

@@ -23,7 +23,7 @@ public class Forum {
 	private String forumcontent;
 	
 	@ManyToOne
-	private User useremailid;
+	private UserDetail user;
 	
 	@Column(nullable=false)
 	private Date createdate;
@@ -33,6 +33,14 @@ public class Forum {
 
 	public int getForumid() {
 		return forumid;
+	}
+
+	public UserDetail getUser() {
+		return user;
+	}
+
+	public void setUser(UserDetail user) {
+		this.user = user;
 	}
 
 	public void setForumid(int forumid) {

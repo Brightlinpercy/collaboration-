@@ -32,7 +32,7 @@ public class ForumComment {
 	private String username;
 	
 	@ManyToOne
-	private User useremailid;
+	private UserDetail useremailid;
 
 	public int getFcommentid() {
 		return fcommentid;

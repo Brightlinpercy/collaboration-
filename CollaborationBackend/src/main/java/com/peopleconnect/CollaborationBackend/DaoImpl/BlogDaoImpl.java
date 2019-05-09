@@ -102,33 +102,52 @@ public class BlogDaoImpl implements BlogDao {
 			return false;
 		}
 		}
-
 		@Override
-		public boolean incrementLikes(Blog blog) {
-			try
-			{
-				blog.setLikes(blog.getLikes()+1);
-				sessionFactory.getCurrentSession().update(blog);
-				return true;
-			}
-			catch(Exception e)
-			{
-			return false;
-		}
-		}
-
+		public List<Blog> selectApprovedBlog() {
+			// TODO Auto-generated method stub
+			try {
+				return sessionFactory.getCurrentSession().createQuery("from Blog where status='"+true+"'").list();
+			}catch(Exception e) {
+			
+			return null;
+		}}
 		@Override
-		public boolean incrementDislikes(Blog blog) {
-			try
-			{
-				blog.setDislike(blog.getDislike()+1);
-				sessionFactory.getCurrentSession().update(blog);
-				return true;
-			}
-			catch(Exception e)
-			{
-			return false;
-		}
-		}
+		public List<Blog> selectUserBlog(int userid) {
+			// TODO Auto-generated method stub
+			try {
+				return sessionFactory.getCurrentSession().createQuery("from Blog where user.userid="+userid).list();
+			}catch(Exception e) {
+			
+			return null;
+		}}
+		
+
+//		@Override
+//		public boolean incrementLikes(Blog blog) {
+//			try
+//			{
+//				blog.setLikes(blog.getLikes()+1);
+//				sessionFactory.getCurrentSession().update(blog);
+//				return true;
+//			}
+//			catch(Exception e)
+//			{
+//			return false;
+//		}
+//		}
+//
+//		@Override
+//		public boolean incrementDislikes(Blog blog) {
+//			try
+//			{
+//				blog.setDislike(blog.getDislike()+1);
+//				sessionFactory.getCurrentSession().update(blog);
+//				return true;
+//			}
+//			catch(Exception e)
+//			{
+//			return false;
+//		}
+//		}
 
 	}

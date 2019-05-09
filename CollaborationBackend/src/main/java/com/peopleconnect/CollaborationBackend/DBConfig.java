@@ -24,7 +24,7 @@ public class DBConfig {
 	{	
 		BasicDataSource basicDataSource=new BasicDataSource();
 		basicDataSource.setDriverClassName("org.h2.Driver");
-		basicDataSource.setUrl("jdbc:h2:tcp://localhost/~/peopleconnect");
+		basicDataSource.setUrl("jdbc:h2:tcp://localhost/~/peopleconnectnew");
 		basicDataSource.setUsername("sa");
 		basicDataSource.setPassword("sa");
 		return basicDataSource;

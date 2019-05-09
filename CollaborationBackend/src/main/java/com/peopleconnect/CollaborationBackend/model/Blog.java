@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Blog {
@@ -25,19 +29,16 @@ public class Blog {
 	
 	
 	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-YYYY")
 	private Date createdate;
 
 	@Column(nullable=false)
 	private String status;
 
-	@Column
-	private int likes;
-	
-	@Column
-	private int dislike;
 	
 	@ManyToOne
-	private User useremailid;
+	private UserDetail user;
 	
 	
 	public int getBlogid() {
@@ -81,29 +82,17 @@ public class Blog {
 		this.status = status;
 	}
 
-	public int getLikes() {
-		return likes;
+	
+
+	public UserDetail getUser() {
+		return user;
 	}
 
-	public void setLikes(int likes) {
-		this.likes = likes;
+	public void setUser(UserDetail user) {
+		this.user = user;
 	}
 
-	public int getDislike() {
-		return dislike;
-	}
-
-	public void setDislike(int dislike) {
-		this.dislike = dislike;
-	}
-
-	public User getUseremailid() {
-		return useremailid;
-	}
-
-	public void setUseremailid(User useremailid) {
-		this.useremailid = useremailid;
-	}
+	
 
 	
 }
